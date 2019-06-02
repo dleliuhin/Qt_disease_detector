@@ -5,7 +5,9 @@ CONFIG += qt
 CONFIG += core
 
 SOURCES += main.cpp \
-    container.cpp
+    modules/container.cpp
+
+SUBDIRS += Qt_disiease_detector.pro
 
 HEADERS += \
-    container.h
+    modules/container.h
