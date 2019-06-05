@@ -2,3 +2,7 @@
 
 *.autosave
 *.user
+
+# Exclude extend folders
+
+dataset/*

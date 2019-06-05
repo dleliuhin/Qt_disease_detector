@@ -4,11 +4,10 @@
 #include <iostream>
 #include <vector>
 
+#include <opencv/highgui.h>
+
 class Container
 {
-public:
-    Container();
-
 public:
     struct Textures
     {
@@ -42,6 +41,58 @@ public:
         std::vector<Channels> nh8;
         std::vector<Channels> nh9;
         std::vector<Channels> nh10;
+    };
+
+    //===================================================================================
+
+    struct Dataset
+    {
+        std::vector<cv::Mat> h;
+
+        std::vector<cv::Mat> nh1;
+        std::vector<cv::Mat> nh2;
+        std::vector<cv::Mat> nh3;
+        std::vector<cv::Mat> nh4;
+        std::vector<cv::Mat> nh5;
+        std::vector<cv::Mat> nh6;
+        std::vector<cv::Mat> nh7;
+        std::vector<cv::Mat> nh8;
+        std::vector<cv::Mat> nh9;
+        std::vector<cv::Mat> nh10;
+    };
+
+    //===================================================================================
+
+    // Gray Level (Choose in 4/8/16)
+    enum GrayLevel
+    {
+        GRAY_4,
+        GRAY_8,
+        GRAY_16
+    };
+
+    // Gray Value Statistical Direction
+    // (Choose in 0°, 45°, 90°, 135°)
+    enum GrayDirection
+    {
+        DIR_0,
+        DIR_45,
+        DIR_90,
+        DIR_135
+    };
+
+    // Point out R, G, B Channel of a Image
+    enum EnumChannels
+    {
+        // inter channels
+        CHANNEL_R,
+        CHANNEL_G,
+        CHANNEL_B,
+
+        // intra channels
+        CHANNEL_RG,
+        CHANNEL_RB,
+        CHANNEL_GB
     };
 };
 
