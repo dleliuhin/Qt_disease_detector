@@ -15,10 +15,10 @@ INCLUDEPATH += -I/usr/local/include/opencv
 LIBS += $(shell pkg-config opencv --libs)
 
 SOURCES += main.cpp \
-    modules/container.cpp \
     modules/classifier.cpp \
     modules/dataparser.cpp \
-    modules/imageprocessing.cpp
+    modules/imageprocessing.cpp \
+    modules/glcmbuilder.cpp
 
 SUBDIRS += Qt_disease_detector.pro
 
@@ -26,4 +26,5 @@ HEADERS += \
     modules/container.h \
     modules/classifier.h \
     modules/dataparser.h \
-    modules/imageprocessing.h
+    modules/imageprocessing.h \
+    modules/glcmbuilder.h

@@ -4,9 +4,10 @@
 
 #include <opencv/highgui.h>
 
-#include "modules/container.h"
 #include "modules/classifier.h"
+#include "modules/container.h"
 #include "modules/dataparser.h"
+#include "modules/glcmbuilder.h"
 
 using namespace std;
 using namespace cv;
@@ -15,15 +16,25 @@ int main()
 {
     qDebug() << QString("System started!");
 
-    Container::Groups plants;
+    Groups plants;
 
-    Container::Dataset dataset;
+    Dataset dataset;
     DataParser::parse_all(&dataset);
 
-    auto glcm = Glcm::get_one_channel(dataset.h.at(0),
-                                      Container::CHANNEL_R);
+    auto glcm = GlcmBuilder::get_one_channel(dataset.h.at(0), CHANNEL_R);
 
-    auto gray = Glcm::get_gray_magnitude(glcm, Container::GRAY_8);
+    auto magn = GlcmBuilder::get_gray_magnitude(glcm, GRAY_8);
+
+    GlcmBuilder::calc_image_textures(magn, GRAY_8, true);
+
+    TextureValues tvalues;
+
+    GlcmBuilder::calc_texture_evalue(magn, tvalues, GRAY_8);
+
+    qDebug() << QString(" Contrast: ") << tvalues.contrast;
+    qDebug() << QString(" Correlation: ") << tvalues.correlation;
+    qDebug() << QString(" Energy: ") << tvalues.energy;
+    qDebug() << QString(" Homogeneity: ") << tvalues.homogeneity;
 
     return 0;
 }

@@ -1,14 +1,12 @@
 #include "dataparser.h"
 
-#include <iostream>
-
 using namespace std;
 using namespace cv;
 
 //=======================================================================================
 
 //=======================================================================================
-void DataParser::parse_all(Container::Dataset *dataset)
+void DataParser::parse_all(Dataset *dataset)
 {
     auto im_path = "Healthy/*.jpg";
     parse_group(im_path, dataset->h);

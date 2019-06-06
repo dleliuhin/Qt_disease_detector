@@ -8,7 +8,12 @@
 class Classifier
 {
 public:
-    static void to_train(Container::Groups &plants);
+
+    static void to_train(Groups &plants);
+
+    //-----------------------------------------------------------------------------------
+
+    static void to_test();
 
 //private:
 
